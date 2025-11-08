@@ -1,19 +1,17 @@
 
-# README.md
-
-#  Banco de Agricultura - Sistema Bancario Frontend
+# Banco de Agricultura - Sistema Bancario Frontend
 
 Sistema de gestión bancaria desarrollado con React + Vite + Material UI.
 
-##  Requisitos Previos
+## Requisitos Previos
 
-- Node.js 18+ 
+- Node.js 18+
 - npm o yarn
 - Backend Java Spring Boot corriendo en `http://localhost:8080`
 
-##  Instalación
+## Instalación
 
-\`\`\`bash
+```bash
 # Clonar repositorio
 git clone <repo-url>
 cd banco-agricultura-frontend
@@ -27,17 +25,13 @@ cp .env.example .env
 
 # Iniciar servidor de desarrollo
 npm run dev
-o
-doble click en 'iniciar_servidor.bat' (ejecutable dentro de  la carpeta del proyecto)
+# o
+# doble click en 'iniciar_servidor.bat' (ejecutable dentro de la carpeta del proyecto)
 
-\`\`\`
+El proyecto estará disponible en http://localhost:3000
 
-El proyecto estará disponible en `http://localhost:3000`
-
-##  Estructura del Proyecto
-
-\`\`\`
 banco-agricultura-frontend/
+
 ├── public/              # Archivos estáticos (logos, imágenes)
 ├── src/
 │   ├── api/            # Configuración de API y llamadas al backend
@@ -72,21 +66,9 @@ banco-agricultura-frontend/
 ├── vite.config.js      # Configuración de Vite
 ├── package.json        # Dependencias del proyecto
 └── README.md           # Este archivo
-\`\`\`
 
-##  Tecnologías
+Credenciales de Prueba
 
-- **React 18.3.1** - Librería UI
-- **Vite 5.4** - Build tool
-- **Material UI v6** - Framework de componentes
-- **React Router 6.26** - Routing
-- **Axios 1.6** - Cliente HTTP
-- **React Hook Form 7.53** - Manejo de formularios
-- **Zod 3.23** - Validación de esquemas
-
-##  Credenciales de Prueba
-
-\`\`\`
 Admin:
   Email: admin@banco.com
   Password: admin123
@@ -98,54 +80,58 @@ Empleado:
 Cliente:
   Email: cliente@banco.com
   Password: cli123
-\`\`\`
+Módulos del Sistema
+✅ Módulos Implementados (Contratos Definidos)
+1. Autenticación
 
-## Modulos del Sistema
+✅ Login con validación
 
-✅ Modulos Implementados (endpoints definidos)
-1. **Autenticacion**
-✅ Login con validacion 
+✅ Manejo de sesión (Context)
 
-✅ Manejo de sesión (Context) 
+✅ Logout
 
-✅ Logout 
+✅ Protección de rutas (implícita en App.jsx)
 
-✅ Protección de rutas (implicita en App.jsx )
+2. Dashboard
 
-2. **Dashboard**
-✅ Menu desplegable y navegación 
+✅ Menu desplegable y navegación
 
 ✅ Diseño responsivo
 
-3. **Gestión de Usuarios**
-✅ Lista de usuarios con búsqueda 
+3. Gestión de Usuarios
 
-✅ Crear/Editar/Eliminar usuario (simulado) 
+✅ Lista de usuarios con búsqueda
 
-✅ Formulario con validación Zod (DUI, Teléfono, etc.) 
+✅ Crear/Editar/Eliminar usuario (simulado)
 
-✅ Indicadores visuales de rol y estado 
+✅ Formulario con validación Zod (DUI, Teléfono, etc.)
 
-4. **Servicios - Cuentas**
+✅ Indicadores visuales de rol y estado
+
+4. Servicios - Cuentas
+
 ✅ Lista de cuentas bancarias (Mock)
 
 ✅ Formulario para solicitar cuenta (Ahorro/Corriente) con validación
 
 ✅ Lógica para cambiar estado (simulada)
 
-5. **Servicios - Préstamos**
+5. Servicios - Préstamos
+
 ✅ Lista de préstamos (Mock)
 
 ✅ Formulario para solicitar préstamo con validación
 
 ✅ Lógica para Aprobar/Rechazar (simulada)
 
-6. **Servicios - Movimientos**
+6. Servicios - Movimientos
+
 ✅ Hook para leer historial de una cuenta (Mock)
 
 ✅ Componente de vista de historial (usado en modal de Cuentas)
 
-7. **Servicios - Transferencias**
+7. Servicios - Transferencias
+
 ✅ Formulario para Transferencia Normal (cuenta a cuenta)
 
 ✅ Formulario para Transferencia Express (generar token)
@@ -155,59 +141,107 @@ Cliente:
 ✅ Validación Zod para ambos formularios
 
 🔌 Módulos Pendientes (con estructura preparada)
+8. Gestión de Sucursales
 
-8. **Gestion de Sucursales**
 🔌 Lista de sucursales
 
 🔌 Crear/Editar sucursal
 
 🔌 Campos: Nombre, Dirección, Teléfono, Ciudad, Estado
 
-9. **Dependientes**
+9. Dependientes
+
 🔌 Consultar dependientes
 
 🔌 Agregar dependiente
 
 🔌 Lista de dependientes por usuario
 
-10. **Gestiones**
+10. Gestiones
+
 🔌 Gestionar cuentas (reportes, estados)
 
 🔌 Gestionar préstamos (análisis, aprobaciones masivas)
 
+Integración con Backend
+Endpoints Requeridos
+Nota para el equipo de Backend: Todos los endpoints están documentados en src/api/endpoints.js. Los formatos de request/response esperados están comentados en cada custom hook (src/api/hooks/).
 
-##  Integración con Backend
+Autenticación
 
-### Endpoints Requeridos
+POST /api/auth/login
 
-El backend debe implementar los siguientes endpoints:
+GET /api/auth/me
 
-#### Autenticación
-- `POST /api/auth/login` - Login
-- `GET /api/auth/me` - Usuario actual
+Cuentas
 
-#### Cuentas
-- `GET /api/cuentas` - Listar cuentas
-- `POST /api/cuentas` - Crear cuenta
-- `PUT /api/cuentas/:id` - Actualizar cuenta
-- `DELETE /api/cuentas/:id` - Eliminar cuenta
+GET /api/cuentas
 
-#### Préstamos
-- `GET /api/prestamos` - Listar préstamos
-- `POST /api/prestamos` - Crear préstamo
-- `POST /api/prestamos/:id/aprobar` - Aprobar préstamo
-- `POST /api/prestamos/:id/rechazar` - Rechazar préstamo
+POST /api/cuentas
 
-#### Movimientos
-- `GET /api/movimientos` - Listar movimientos
-- `POST /api/movimientos` - Crear movimiento
+PUT /api/cuentas/:id
 
-#### Reportes
-- `GET /api/reportes/dashboard` - Estadísticas dashboard
+DELETE /api/cuentas/:id
 
-### Formato de Respuesta del backend esperado
+Préstamos
 
-\`\`\`json
+GET /api/prestamos
+
+POST /api/prestamos
+
+POST /api/prestamos/:id/aprobar
+
+POST /api/prestamos/:id/rechazar
+
+Movimientos
+
+GET /api/movimientos
+
+POST /api/movimientos
+
+Reportes
+
+GET /api/reportes/dashboard
+
+Transferencias
+
+GET /api/transferencias
+
+POST /api/transferencias
+
+POST /api/transferencias/express
+
+GET /api/transferencias/historial
+
+Dependientes
+
+GET /api/dependientes
+
+POST /api/dependientes
+
+GET /api/dependientes/usuario/:usuarioId
+
+Usuarios
+
+GET /api/usuarios
+
+POST /api/usuarios
+
+GET /api/usuarios/:id
+
+PUT /api/usuarios/:id
+
+Sucursales
+
+GET /api/sucursales
+
+POST /api/sucursales
+
+PUT /api/sucursales/:id
+
+Formato de Respuesta del backend esperado
+JSON
+
 {
   "success": true,
   "data": {
@@ -217,8 +251,8 @@ El backend debe implementar los siguientes endpoints:
   },
   "message": "Operacion exitosa"
 }
-
-### Formato para errores
+Formato para errores
+JSON
 
 {
   "success": false,
@@ -226,73 +260,77 @@ El backend debe implementar los siguientes endpoints:
   "message": "Error al procesar la solicitud",
   "errors": {
     "email": ["El email ya esta registrado"],
-    "dui": ["Formato de DUI invalido"]
+    "dui": ["Formato de DUI inválido"]
   }
 }
-
-\`\`\`
-
-### Headers Requeridos
-
-\`\`\`
+Headers Requeridos
 Authorization: Bearer <JWT_TOKEN>
 Content-Type: application/json
 Accept: application/json
-\`\`\`
+Scripts Disponibles
+Bash
 
-##  Scripts Disponibles
-
-\`\`\`bash
 npm run dev       # Iniciar servidor de desarrollo
 npm run build     # Construir para producción
 npm run preview   # Vista previa de producción
 npm run lint      # Ejecutar ESLint
-\`\`\`
+Funcionalidades Principales
+Autenticación
+Login con JWT
 
-##  Funcionalidades Principales
+Persistencia de sesión
 
-### Autenticación
-- Login con JWT
-- Persistencia de sesión
-- Logout
-- Protección de rutas
+Logout
 
-### Dashboard
-- Estadísticas generales
-- Tarjetas de resumen
-- Saludo personalizado
+Protección de rutas
 
-### Gestión de Cuentas
-- Listar cuentas
-- Crear nueva cuenta
-- Editar cuenta
-- Eliminar cuenta
-- Búsqueda por número/cliente
+Dashboard
+Estadísticas generales
 
-### Gestión de Préstamos
-- Listar préstamos
-- Crear préstamo
-- Aprobar/Rechazar préstamos
-- Filtros por estado
+Tarjetas de resumen
 
-### Movimientos
-- Historial de transacciones
-- Filtros por fecha
-- Indicadores visuales (depósito/retiro)
+Saludo personalizado
 
-##  Sistema de Roles
+Gestión de Cuentas
+Listar cuentas
 
-- **ADMIN**: Acceso completo al sistema
-- **EMPLEADO**: Gestión de cuentas, préstamos y clientes
-- **CLIENTE**: Solo consulta de sus propios datos
+Crear nueva cuenta
 
-##  Personalización
+Editar cuenta
 
-### Cambiar Colores del Tema
+Eliminar cuenta
 
-Editar `src/theme/theme.js`:
+Búsqueda por número/cliente
 
-\`\`\`javascript
+Gestión de Préstamos
+Listar préstamos
+
+Crear préstamo
+
+Aprobar/Rechazar préstamos
+
+Filtros por estado
+
+Movimientos
+Historial de transacciones
+
+Filtros por fecha
+
+Indicadores visuales (depósito/retiro)
+
+Sistema de Roles
+ADMIN: Acceso completo al sistema
+
+EMPLEADO: Gestión de cuentas, préstamos y clientes
+
+CLIENTE: Solo consulta de sus propios datos
+
+Personalización
+Cambiar Colores del Tema
+Editar src/theme/theme.js:
+
+JavaScript
+
 primary: {
   main: '#2E7D32', // Verde del banco
   light: '#60AD5E',
@@ -303,121 +341,32 @@ secondary: {
   light: '#FFD95B',
   dark: '#C77800'
 }
-\`\`\`
-
-##  Responsive Design
-
+Responsive Design
 La aplicación está optimizada para:
--  Mobile (< 600px)
--  Tablet (600px - 960px)
--  Desktop (> 960px)
 
-##  Solución de Problemas
+Mobile (< 600px)
 
-### Error de CORS
-Verificar que el backend tenga CORS habilitado para `http://localhost:3000`
+Tablet (600px - 960px)
 
-### Token Expirado
+Desktop (> 960px)
+
+Solución de Problemas
+Error de CORS
+Verificar que el backend tenga CORS habilitado para http://localhost:3000
+
+Token Expirado
 El sistema redirige automáticamente al login cuando el token expira (error 401)
 
-### Proxy no funciona
-Verificar configuración en `vite.config.js` y que el backend esté corriendo en puerto 8080
+Proxy no funciona
+Verificar configuración en vite.config.js y que el backend esté corriendo en puerto 8080
 
-##  Recursos
+Recursos
+React Docs
 
-- [React Docs](https://react.dev)
-- [Material UI](https://mui.com)
-- [React Router](https://reactrouter.com)
-- [Axios](https://axios-http.com)
-- [React Hook Form](https://react-hook-form.com)
+Material UI
 
-##  Equipo
+React Router
 
-Desarrollado para facilitar la integración con el backend Java Spring Boot.
+Axios
 
-
----
-
-**Nota para el equipo de Backend:**
-Todos los endpoints están documentados en `src/api/endpoints.js`. Los formatos de request/response esperados están comentados en cada custom hook (`src/api/hooks/`).
-
-Endpoints del Backend (Todos documentados en src/api/endpoints.js)
-Autenticación
-POST /api/auth/login
-
-POST /api/auth/logout
-
-GET /api/auth/me
-
-Usuarios
-GET /api/usuarios
-
-POST /api/usuarios
-
-GET /api/usuarios/:id
-
-PUT /api/usuarios/:id
-
-DELETE /api/usuarios/:id
-
-GET /api/usuarios/buscar?dui=12345678-9
-
-POST /api/usuarios/cambiar-password
-
-Sucursales
-GET /api/sucursales
-
-POST /api/sucursales
-
-PUT /api/sucursales/:id
-
-DELETE /api/sucursales/:id
-
-Cuentas
-GET /api/cuentas
-
-POST /api/cuentas
-
-GET /api/cuentas/usuario/:usuarioId
-
-PUT /api/cuentas/:id
-
-DELETE /api/cuentas/:id
-
-Préstamos
-GET /api/prestamos
-
-POST /api/prestamos
-
-POST /api/prestamos/:id/aprobar
-
-POST /api/prestamos/:id/rechazar
-
-GET /api/prestamos/usuario/:usuarioId
-
-Transferencias
-GET /api/transferencias
-
-POST /api/transferencias
-
-POST /api/transferencias/express
-
-GET /api/transferencias/historial
-
-Dependientes
-GET /api/dependientes
-
-POST /api/dependientes
-
-GET /api/dependientes/usuario/:usuarioId
-
-PUT /api/dependientes/:id
-
-DELETE /api/dependientes/:id
-
-Reportes
-GET /api/reportes/dashboard
-
-
-
-=======
+React Hook Form
