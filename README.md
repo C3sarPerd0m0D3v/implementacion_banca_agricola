@@ -1,4 +1,4 @@
-![Logo del Banco de Agricultura](./public/logo_banco_agro.png)
+![Logo del Banco de Agricultura](./public/logo_fondo_git.png)
 
 # Banco de Agricultura - Sistema Bancario Frontend
 
