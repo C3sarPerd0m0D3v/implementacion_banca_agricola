@@ -1,4 +1,9 @@
+
 import ListaUsuarios from './pages/usuarios/ListaUsuarios';
+import ListaPrestamos from './pages/prestamos/ListaPrestamos';
+import ListaCuentas from './pages/cuentas/ListaCuentas';
+import Transferencias from './pages/transferencias/Transferencias';
+import TransferenciasExpress from './pages/transferencias/TransferenciasExpress';
 import { useState } from "react";
 import {
   ThemeProvider,
@@ -139,6 +144,7 @@ function LoginPage({ onLogin }) {
         {/* Contenido centrado */}
 
         <Box sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+
           {/* Logo circular grande */}
 
           <Box
@@ -224,6 +230,7 @@ function LoginPage({ onLogin }) {
         }}
       >
         <Box sx={{ maxWidth: 480, width: "100%" }}>
+
           {/* Logo para mOvil */}
 
           <Box
@@ -517,17 +524,17 @@ function DashboardPage({ user, onLogout }) {
   // Titulos de cada seccion
   
   const titles = {
-    usuarios: "Gestión de Usuarios",
-    sucursales: "Gestión de Sucursales",
-    cuentas: "Gestión de Cuentas",
-    prestamos: "Gestión de Préstamos",
+    usuarios: "Gestion de Usuarios",
+    sucursales: "Gestion de Sucursales",
+    cuentas: "Gestion de Cuentas",
+    prestamos: "Gestion de Prestamos",
     transferencias: "Transferencias Bancarias",
     "transferencias-express": "Transferencias Express",
     consulta: "Consultar Dependientes",
     agregar: "Agregar Dependiente",
     "lista-dependientes": "Lista de Dependientes",
     "gestionar-cuentas": "Gestionar Cuentas",
-    "gestionar-prestamos": "Gestionar Préstamos",
+    "gestionar-prestamos": "Gestionar Prestamos",
   };
 
   // renderizado segun opcion
@@ -537,12 +544,21 @@ function DashboardPage({ user, onLogout }) {
       return <ListaUsuarios />;
     
     // paginas pendientes aca abajo:
+    
     // case 'sucursales':
     //   return <ListaSucursales />;
-    // case 'cuentas':
-    //   return <ListaCuentas />;
-    // case 'prestamos':
-    //   return <ListaPrestamos />;
+
+    case 'cuentas':
+       return <ListaCuentas />;
+
+     case 'prestamos':
+       return <ListaPrestamos />;
+
+     case 'transferencias':
+       return <Transferencias />;
+       
+     case 'transferencias-express':
+       return <TransferenciasExpress />;  
     
     default:
 

@@ -161,7 +161,7 @@ const ListaUsuarios = () => {
       }}>
         <Box>
           <Typography variant="h4" fontWeight="bold" sx={{ color: 'white' }}>
-            Gestión de Usuarios
+            Gestion de Usuarios
           </Typography>
           <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
             Administra los usuarios del sistema bancario

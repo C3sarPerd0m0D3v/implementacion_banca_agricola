@@ -54,7 +54,7 @@ const Dashboard = () => {
       bgColor: 'rgba(46, 125, 50, 0.1)'
     },
     {
-      title: 'Préstamos Activos',
+      title: 'Prestamos Activos',
       value: formatNumber(dashboardStats.prestamosActivos),
       icon: <AttachMoney sx={{ fontSize: 40 }} />,
       color: '#FFA726',

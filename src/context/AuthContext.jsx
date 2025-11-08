@@ -1,4 +1,4 @@
-// src/context/AuthContext.jsx
+
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,29 +9,33 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   // LOGIN SIMULADO (para demo sin backend)
+
   const login = async (email, password) => {
+
     // Simular delay de red
+    
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     // Validar credenciales de demo
+
     const demoUsers = {
       'admin@banco.com': {
         id: 1,
-        nombre: 'Juan Administrador',
+        nombre: 'banne Administrador',
         email: 'admin@banco.com',
         rol: 'ADMIN',
         permisos: ['VER_TODO', 'CREAR', 'EDITAR', 'ELIMINAR']
       },
       'empleado@banco.com': {
         id: 2,
-        nombre: 'María Empleada',
+        nombre: 'Ana Empleada',
         email: 'empleado@banco.com',
         rol: 'EMPLEADO',
         permisos: ['VER_CUENTAS', 'CREAR_CUENTAS']
       },
       'cliente@banco.com': {
         id: 3,
-        nombre: 'Pedro Cliente',
+        nombre: 'Oscar Cliente',
         email: 'cliente@banco.com',
         rol: 'CLIENTE',
         permisos: ['VER_PROPIAS']
